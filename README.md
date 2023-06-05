@@ -118,18 +118,18 @@ In this example, all the three div elements contain the word ‘random’.
 
 ## Attribute Starts with
 To select the first `div` element, we would use `^=` which means ‘starts with’:
-```html
+```java
 driver.findElement(By.cssSelector("div[id^='123']"));
 ```
 
 ## Attribute Ends with
 To select the second `div` element, we would use `$=` which means ‘ends with’:
-```html
+```java
 driver.findElement(By.cssSelector("div[id$='456']"));
 ```
 ## Attribute Contains
 To select the last div element we would use *= which means ‘sub-string’
-```html
+```java
 driver.findElement(By.cssSelector("div[id*='_pattern_']"));
 ```
 We can also use the contains
