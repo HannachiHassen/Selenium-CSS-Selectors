@@ -57,3 +57,34 @@ Example:
 ```java
 driver.findElement(By.cssSelector("div[class='ajax_enabled'] [style='display:block']"))
 ```
+
+##Attribute NOT contain a specific value
+
+In WebDriver, how do you find elements whose attribute contain values which you don’t want to select? This CSS selector example shows how NOT to select by specific attribute value
+
+Suppose you have many elements which share the same attribute and attribute value, but some of those elements have other variables appended to the value. e.g:
+```html
+<div class="day past calendar-day-2017-02-13 calendar-dow-1 unavailable">
+<div class="day today calendar-day-2017-02-14 calendar-dow-2 unavailable">
+<div class="day calendar-day-2017-02-15 calendar-dow-3">
+<div class="day calendar-day-2017-02-16 calendar-dow-4">
+```
+In the above snippet, we want to select an available day (i.e. the two last `div` elements)
+
+As can be seen, all four divs contain “calendar-day-“ but the first two also contain “unavailable” which we don’t want.
+
+The CSS selector for Not selecting the first two divs is
+```java
+driver.findElement(By.cssSelector("div[class*=calendar-day-]:not([class*='unavailable'])"));"
+```
+## Locating Child Element
+
+## Multiple Child Elements
+
+## Dynamically Generated Ids
+
+## Attribute Starts with
+
+## Attribute Ends with
+
+## Attribute Contains
