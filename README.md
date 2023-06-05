@@ -77,13 +77,62 @@ The CSS selector for Not selecting the first two divs is
 driver.findElement(By.cssSelector("div[class*=calendar-day-]:not([class*='unavailable'])"));"
 ```
 ## Locating Child Element
+```html
+<div id="logo">
+    <img src="./logo.png" />
+</div>
+```
+To locate the image tag, we use:
+```java
+driver.findElement(By.cssSelector("div#logo img"));
+```
 
 ## Multiple Child Elements
+There are occasions when there are multiple child elements within the same parent element such as list elements
+```html
+<ul id="fruit">
+    <li>Apple</li>
+    <li>Orange</li>
+    <li>Banana</li>
+</ul>
+```
+As can be seen, the individual list elements don’t have any id associated with them. To locate the element with text ‘Orange’, we have to use `nth-of-type`.
 
+#### Example:
+```java
+driver.findElement(By.cssSelector("ul#fruit li:nth-of-type(2)"));
+```
+Likewise, to select the last child element, i.e. ‘Banana’, we use:
+```java
+driver.findElement(By.cssSelector("ul#fruit li:last-child"));
+```
 ## Dynamically Generated Ids
+We can use string matchers to locate elements with dynamically generated Ids.
+
+In this example, all the three div elements contain the word ‘random’.
+```html
+<div id="123_randomId">
+<div id="randomId_456">
+<div id="123_pattern_randomId">
+```
 
 ## Attribute Starts with
+To select the first `div` element, we would use `^=` which means ‘starts with’:
+```html
+driver.findElement(By.cssSelector("div[id^='123']"));
+```
 
 ## Attribute Ends with
-
+To select the second `div` element, we would use `$=` which means ‘ends with’:
+```html
+driver.findElement(By.cssSelector("div[id$='456']"));
+```
 ## Attribute Contains
+To select the last div element we would use *= which means ‘sub-string’
+```html
+driver.findElement(By.cssSelector("div[id*='_pattern_']"));
+```
+We can also use the contains
+```java
+driver.findElement(By.cssSelector("div:contains('_pattern_')"));
+```
