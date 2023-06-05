@@ -15,15 +15,14 @@ The generic way to locate elements by attribute is:
 ```html
 css = element_name[<attribute_name>='<value>']
 ```
-
-Example:
+#### Example:
 ```java
 WebElement firstName = driver.findElement(By.cssSelector("input[name='first_name']"));
 ```
 ## Id Attribute
 In CSS, we can use # notation to select the id attribute of an element:
 
-Example:
+#### Example:
 ```java
 driver.findElement(By.cssSelector("input#firstname"));
 
@@ -53,12 +52,12 @@ Sometimes there is a need to be more specific with the selection criteria in ord
 ```
 The value of the display could either be “none” or “block” depending on the ajax call. In this situation, we have to locate the element by both class and style.
 
-Example:
+#### Example:
 ```java
 driver.findElement(By.cssSelector("div[class='ajax_enabled'] [style='display:block']"))
 ```
 
-##Attribute NOT contain a specific value
+## Attribute NOT contain a specific value
 
 In WebDriver, how do you find elements whose attribute contain values which you don’t want to select? This CSS selector example shows how NOT to select by specific attribute value
 
